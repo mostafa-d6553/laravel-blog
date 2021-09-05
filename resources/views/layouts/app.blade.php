@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>وبلاگ {{ $title }}</title>
     
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">-->
@@ -39,26 +41,62 @@
         <li class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="{{ route('landing') }}">Home</a>
         </li>
+
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Programming
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          <ul class="dropdown-menu dropdown-menu-dark mx-0 border-0 shadow" style="width: 220px;">
+    <li>
+      <a class="dropdown-item d-flex gap-3 align-items-center mb-2" href="#">
+      <i class="fab fa-php"></i>
+              PHP
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-3 align-items-center mb-2" href="#">
+      <i class="fab fa-js-square"></i>  
+            JS
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-3 align-items-center mb-2" href="#">
+      <i class="fab fa-java"></i>
+        JAVA
+      </a>
+    </li>
+  </ul>
         </li>
+
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Hack
+            Entertainment
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          <ul class="dropdown-menu dropdown-menu-dark mx-0 border-0 shadow" style="width: 220px;">
+    <li>
+      <a class="dropdown-item d-flex gap-3 align-items-center mb-2" href="#">
+      <i class="fas fa-music"></i>
+        Music
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-3 align-items-center mb-2" href="#">
+      <i class="fas fa-gamepad"></i>
+        Games
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-3 align-items-center mb-2" href="#">
+      <i class="fas fa-video"></i>
+        Movie
+      </a>
+    </li>
+  </ul>
         </li>
+
+
         <li class="nav-item">
           <a class="nav-link text-white" href="#">Contact Us</a>
         </li>

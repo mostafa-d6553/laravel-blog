@@ -4,59 +4,78 @@
     - register
 </x-slot>
 
-<main class="bg--white">
-    <div class="container">
-        <div class="sign-page">
-            <h1 class="sign-page__title">ثبت نام در وب‌سایت</h1>
+<div class="container col-6">
+<form method="POST" action="{{ route('register.store') }}">
 
-        
-            <form class="sign-page__form" method="POST" action="{{ route('register.store') }}">
-                    @csrf
+      @csrf
 
-                    <div>
-                        <input type="text" name="name" class="text text--right" placeholder="نام  و نام خانوادگی">
-                        @error('name')
-                            <p style="margin-bottom: 1rem;"> {{ $message }} </p>
-                        @enderror
-                    </div>
+      <div class="text-center mb-3">
+        <h2 class="mb-4">Sign up with:</h2>
+        <button type="button" class="btn btn-primary btn-floating mx-1">
+          <a href="https://github.com/mostafa-d6553" class="text-decoratin-none text-white"><i class="fab fa-instagram"></i></a>
+        </button>
 
-                    <div>
-                        <input type="text" name="phone" class="text text--left" placeholder="شماره موبایل">
-                        @error('phone')
-                            <p style="margin-bottom: 1rem;"> {{ $message }} </p>
-                        @enderror
-                    </div>
+        <button type="button" class="btn btn-primary btn-floating mx-1">
+          <i class="fab fa-google"></i>
+        </button>
 
-                    <div>
-                        <input type="text" name="email" class="text text--left" placeholder="ایمیل">
-                        @error('email')
-                            <p style="margin-bottom: 1rem;"> {{ $message }} </p>
-                        @enderror
-                    </div>
+        <button type="button" class="btn btn-primary btn-floating mx-1">
+          <i class="fab fa-twitter"></i>
+        </button>
 
-                    <div>
-                        <input type="password" name="password" class="text text--left" placeholder="رمز عبور">
-                        @error('password')
-                            <p style="margin-bottom: 1rem;"> {{ $message }} </p>
-                        @enderror
-                    </div>
+        <button type="button" class="btn btn-primary btn-floating mx-1">
+        <i class="fab fa-github"></i>
+        </button>
+      </div>
 
-                    <div>
-                        <input type="password" name="password_confirmation" class="text text--left" placeholder="تکرار رمز عبور">
-                        @error('password_confirmation')
-                            <p style="margin-bottom: 1rem;"> {{ $message }} </p>
-                        @enderror
-                    </div>
+      <h2 class="text-center mb-4">or:</h2>
+
+      <div class="form-outline mb-4 form-floating">
+        <input type="text" name="name" id="registerName" class="form-control" />
+        <label class="form-label" for="registerName">نام  و نام خانوادگی</label>
+        @error('name')
+          <p style="margin:1rem;"> {{ $message }} </p>
+        @enderror
+      </div>
+
+      <div class="form-outline mb-4 form-floating">
+        <input type="text" name="phone" id="registerUsername" class="form-control" />
+        <label class="form-label" for="registerUsername">شماره موبایل</label>
+        @error('phone')
+          <p style="margin:1rem;"> {{ $message }} </p>
+        @enderror
+      </div>
+
+      <div class="form-outline mb-4 form-floating">
+        <input type="email" name="email" id="registerEmail" class="form-control" />
+        <label class="form-label" for="registerEmail">ایمیل</label>
+        @error('email')
+          <p style="margin:1rem;"> {{ $message }} </p>
+        @enderror
+      </div>
+
+      <div class="form-outline mb-4 form-floating">
+        <input type="password" name="password" id="registerPassword" class="form-control" />
+        <label class="form-label" for="registerPassword">رمز عبور</label>
+        @error('password')
+          <p style="margin:1rem;"> {{ $message }} </p>
+        @enderror
+      </div>
+
+      <div class="form-outline mb-4 form-floating">
+        <input type="password" name="password_confirmation" id="registerRepeatPassword" class="form-control" />
+        <label class="form-label" for="registerRepeatPassword">تکرار رمز عبور</label>
+        @error('password_confirmation')
+          <p style="margin:1rem;"> {{ $message }} </p>
+        @enderror
+      </div>
 
 
-                    <button type="submit" class="btn btn--red btn--shadow-red width-100">ثبت نام</button>
-                    <div class="sign-page__footer">
-                        <span>در سایت عضوید ؟ </span>
-                        <a href="{{ route('login') }}" class="color--46b2f0">صفحه ورود</a>
+      <button type="submit" class="btn btn-primary btn-block mb-3 btn-lg">ثبت نام</button>
+    </form>
 
-                    </div>
-            </form>
-        </div>
     </div>
-</main>
+
+  </div>
+</div>
 </x-app-layout>
