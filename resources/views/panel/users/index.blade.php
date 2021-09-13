@@ -46,6 +46,7 @@
 
 {{ $users->links() }}
 
+
 <button class="btn btn-primary btn-lg"><a href="{{ route('users.create') }}" class="text-white text-decoration-none fw-bold">Create User</a></button>
     </div>
 

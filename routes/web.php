@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\panel\UserController;
+use App\Http\Controllers\panel\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,9 @@ Route::middleware('auth')
 
 Route::middleware('auth')
 ->resource('/panel/users', UserController::class);
+
+Route::middleware('auth')
+->resource('/panel/category', CategoryController::class);
 
 
 require __DIR__.'/auth.php';

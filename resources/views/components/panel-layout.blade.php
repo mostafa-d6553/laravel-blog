@@ -47,7 +47,7 @@ table.table thead {
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-white mb-4">
+        <a href="{{ route('category.index') }}" class="nav-link text-white mb-4 @if(request()->is('panel/category') || request()->is('panel/category/*' )) active @endif">
         <i class="fas fa-braille mx-2"></i>
         دسته بندی ها
         </a>
