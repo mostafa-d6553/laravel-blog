@@ -15,7 +15,8 @@ use App\Http\Controllers\panel\UserController;
 */
 
 
-Route::get('/dashboard', function () {
+Route::middleware('admin')
+->get('/dashboard', function () {
     return view('panel.index');
 })->middleware(['auth'])->name('dashboard');
 
