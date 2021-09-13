@@ -13,6 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">-->
+    @notifyCss
 </head>
 <body>
 <div class="bg-dark mb-3 pb-5 text-white">
@@ -22,10 +23,38 @@
         <h2>Blog</h2>
       </a>
 
+      @guest
       <div class="text-end">
           <a href="{{ route('login') }}"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
           <a href="{{ route('register') }}"><button type="button" class="btn btn-warning">Register</button></a>
       </div>
+
+      @else
+
+      <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ auth()->user()->name }}
+          </a>
+      <ul class="dropdown-menu dropdown-menu-dark mx-0 border-0 shadow" style="width: 220px;">
+      <div class="list">
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center mb-2" href="{{ route('profile') }}">
+        پروفایل
+      </a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="dropdown-item d-flex gap-2 align-items-center mb-2" onclick="document.getElementById('LogoutForm').submit();">
+        خروج
+    </li>
+    <form method="POST" action="{{route( 'logout' )}}" id="LogoutForm">
+    @csrf
+  </form>
+    </div>
+  </ul>
+
+  
+
+      @endguest
+
     </header>
   </div>
 
@@ -34,9 +63,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex justify-content-center py-3">
   <div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
       <ul class="nav nav-pills">
         <li class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="{{ route('landing') }}">Home</a>
@@ -113,7 +141,8 @@
 <script src="{{ ('/blog/js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ ('/js.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-
+@notifyJs
+<x:notify-messages />
 
 </body>
 </html>

@@ -1,34 +1,15 @@
-<x-app-layout>
+<x-panel-layout>
 
 <x-slot name='title'>
-    - register
+    - Create user
 </x-slot>
 
 <div class="container col-6">
-<form method="POST" action="{{ route('register.store') }}">
+<form method="POST" action="{{ route('users.store') }}">
 
       @csrf
 
-      <div class="text-center mb-3">
-        <h2 class="mb-4">Sign up with:</h2>
-        <button type="button" class="btn btn-primary btn-floating mx-1">
-          <i class="fab fa-facebook"></i>
-        </button>
-
-        <button type="button" class="btn btn-primary btn-floating mx-1">
-          <i class="fab fa-google"></i>
-        </button>
-
-        <button type="button" class="btn btn-primary btn-floating mx-1">
-          <i class="fab fa-twitter"></i>
-        </button>
-
-        <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-github"></i>
-        </button>
-      </div>
-
-      <h2 class="text-center mb-4">or:</h2>
+      <h2 class="text-center my-4">Create User</h2>
 
       <div class="form-outline mb-4 form-floating">
         <input type="text" name="name" id="registerName" class="form-control" />
@@ -70,12 +51,16 @@
         @enderror
       </div>
 
+        <select class="form-select mb-3" aria-label="Default select example" name="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+            <option value="author">Author</option>
+        </select>
+
 
       <button type="submit" class="btn btn-primary btn-block mb-3 btn-lg">ثبت نام</button>
     </form>
 
     </div>
 
-  </div>
-</div>
-</x-app-layout>
+</x-panel-layout>

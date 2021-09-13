@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\panel\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,33 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('panel.index');
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('Landing');
+})->name('landing');
 
 Route::get('/landing', function () {
     return view('Landing');
 })->name('landing');
-
-Route::get('/login', function () {
-    return view('Login');
-})->name('login');
-
-Route::get('/register', function () {
-    return view('Register');
-})->name('register');
-
-Route::get('/post', function () {
-    return view('Post');
-})->name('post');
 
 Route::get('/reset-pass', function () {
     return view('Passwordreset');
@@ -48,5 +34,14 @@ Route::get('/reset-pass', function () {
 Route::get('/post/{id}', function ($id) {
     return view('Post');
 })->name('showpost');
+
+Route::middleware('auth')
+->get('/profile', function () {
+    return view('profile');
+})->name('profile');
+
+Route::middleware('auth')
+->resource('/panel/users', UserController::class);
+
 
 require __DIR__.'/auth.php';

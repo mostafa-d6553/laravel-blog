@@ -4,24 +4,28 @@
     - password reset
 </x-slot>
 
-<main class="bg--white">
-    <div class="container">
-        <div class="sign-page">
-            <h1 class="sign-page__title">بازیابی رمز عبور</h1>
+<div class="container col-6">
+<form method="POST" action="{{ route('password.email') }}">
 
-            <form class="sign-page__form">
-                <form action="">
-                    <input type="text" class="text text--left" placeholder="شماره یا ایمیل">
+      @csrf
 
-                    <button class="btn btn--blue btn--shadow-blue width-100 ">بازیابی</button>
-                    <div class="sign-page__footer">
+      <h2 class="text-center mb-4">بازیابی رمز عبور</h2>
+
+      <div class="form-outline mb-4 form-floating">
+        <input type="text" name="email" id="registerName" class="form-control" />
+        <label class="form-label" for="registerName">ایمیل</label>
+        @error('email')
+          <p style="margin:1rem;"> {{ $message }} </p>
+        @enderror
+      </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+  <button type="submit" class="btn btn-outline-primary mb-3 mt-3 btn-lg" type="button">بازیابی</button>
+
+  <div class="sign-page__footer">
                         <span>کاربر جدید هستید؟</span>
                         <a href="{{ route('register') }}" class="color--46b2f0">صفحه ثبت نام</a>
 
                     </div>
-                </form>
-            </form>
-        </div>
-    </div>
-</main>
+</div>
 </x-app-layout>
