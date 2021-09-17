@@ -13,7 +13,15 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
+    
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+
+
     <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">-->
+
+    {{ $scripts ?? '' }}
+
     @notifyCss
 
     <style>
@@ -33,6 +41,7 @@ table.table thead {
     <span class="fs-4">{{ auth()->user()->name }}</span>
     </a>
     <hr>
+    @if(auth()->user()->role === 'admin')
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
         <a href="{{ route('dashboard') }}" class="nav-link text-white mb-4 @if(request()->is('dashboard')) active @endif" aria-current="page">
@@ -52,8 +61,9 @@ table.table thead {
         دسته بندی ها
         </a>
       </li>
+      @endif
       <li>
-        <a href="#" class="nav-link text-white mb-4">
+        <a href=" {{ route('posts.index') }} " class="nav-link text-white mb-4 @if(request()->is('panel/posts') || request()->is('panel/posts/*' )) active @endif">
         <i class="fas fa-columns mx-2"></i>
         پست ها
         </a>
@@ -85,8 +95,8 @@ table.table thead {
 
  
   </body>
-  <script src="{{ ('/blog/js/jquery-3.4.1.min.js') }}"></script>
-<script src="{{ ('/js.js') }}"></script>
+<script src="{{ asset('/blog/js/jquery-3.4.1.min.js') }}"></script>
+<script src="{{ asset('/js.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 @notifyJs
 <x:notify-messages />

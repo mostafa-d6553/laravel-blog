@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\panel\UserController;
 use App\Http\Controllers\panel\CategoryController;
+use App\Http\Controllers\panel\PostController;
+use App\Http\Controllers\panel\EditorUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,5 +50,10 @@ Route::middleware('auth')
 Route::middleware('auth')
 ->resource('/panel/category', CategoryController::class);
 
+Route::middleware('auth')
+->resource('/panel/posts', PostController::class);
+
+Route::post('/editor-upload', [EditorUploadController::class, 'upload'])
+->name('editor-upload');
 
 require __DIR__.'/auth.php';

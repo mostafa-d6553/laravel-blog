@@ -152,6 +152,7 @@ return [
         "city" => "شهر",
         "country" => "کشور",
         "address" => "نشانی",
+        "banner" => "تصویر",
         "phone" => "تلفن",
         "mobile" => "تلفن همراه",
         "age" => "سن",
